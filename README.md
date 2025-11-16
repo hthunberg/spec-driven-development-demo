@@ -2,6 +2,10 @@
 
 This project investigates a structured approach to AI-assisted software development using specifications as the primary driver. Instead of directly instructing an AI assistant on *how* to code, we describe *what* we want to achieve through structured specifications that guide the entire development workflow.
 
+## Approach
+
+While tools like [Kiro](https://kiro.dev/), [GitHub's spec-kit](https://github.com/github/spec-kit), and [Tessl Framework](https://tessl.io/) offer complete spec-driven development solutions, this project is just for me to get a deeper knowledge and hence custom built.
+
 ## Sample specifications included
 
 The `spec/` directory contains a complete example specification for a todo-list API that has been generated through all workflow phases and is ready for implementation:
