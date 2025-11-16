@@ -1,74 +1,66 @@
 ---
-allowed-tools: Bash(cat:*), Bash(test:*)
+allowed-tools: Bash(cat:*), Bash(test:*), Bash(ls:*)
 description: Review current specification phase or implementation
 ---
 
-## Review
+## Context
 
-!`current=$(cat spec/.current-spec 2>/dev/null)
-if [ -z "$current" ]; then
-    echo "No active spec. Use 'spec switch <spec-name>' to select one."
-    exit 0
-fi
+Current spec: !`cat spec/.current-spec 2>/dev/null`
 
-echo "Active spec: $current"
-echo "---"
+## Your Task
 
-req_approved=false
-design_approved=false
-tasks_approved=false
+First, validate the current spec:
+1. Read the current spec from the context above
+2. Use `ls` to verify the spec directory exists
+3. If invalid, inform user to run `/spec:switch` or `/spec:new`
+4. Only proceed if valid
 
-if [ -f "spec/$current/.requirements-approved" ]; then req_approved=true; fi
-if [ -f "spec/$current/.design-approved" ]; then design_approved=true; fi
-if [ -f "spec/$current/.tasks-approved" ]; then tasks_approved=true; fi
+Then determine review type based on approval status:
 
-if $req_approved && $design_approved && $tasks_approved; then
-    # IMPLEMENTATION REVIEW
-    echo "## Implementation Review"
-    echo ""
-    echo "All specification documents are approved. It's time to review the implementation against the spec."
-    echo ""
-    echo "**Your Task:**"
-    echo ""
-    echo "1.  **Analyze the Specification:**"
-    echo "    - Read and understand the full specification:"
-    echo "      - spec/$current/requirements.md"
-    echo "      - spec/$current/design.md"
-    echo "      - spec/$current/tasks.md"
-    echo ""
-    echo "2.  **Inspect the Code:**"
-    echo "    - Identify and review the code changes that implement this specification."
-    echo "    - Use tools to find the relevant commits or diffs if necessary."
-    echo ""
-    echo "3.  **Verify Compliance:**"
-    echo "    - **Requirements:** Create a checklist from requirements.md and verify that each requirement is met by the code."
-    echo "    - **Design:** Confirm the implementation adheres to the architecture, patterns, and component choices outlined in design.md."
-    echo "    - **Tasks:** Ensure every item in tasks.md is completed and correctly implemented."
-    echo ""
-    echo "4.  **Deliver Your Review:**"
-    echo "    - Summarize your findings."
-    echo "    - Highlight any deviations, bugs, or areas for improvement."
-    echo "    - If the implementation is solid, provide a confirmation."
+**Check approval files:**
+- Use `test -f spec/[current-spec]/.requirements-approved` to check if requirements approved
+- Use `test -f spec/[current-spec]/.design-approved` to check if design approved
+- Use `test -f spec/[current-spec]/.tasks-approved` to check if tasks approved
 
-else
-    # SPECIFICATION REVIEW
-    echo "## Specification Review"
-    echo ""
-    echo "The following specification documents are present:"
-    ls -1 "spec/$current/" | grep -E "(requirements|design|tasks)\.md"
-    echo ""
-    echo "Approval status:"
-    if $req_approved; then echo "- ✅ requirements.md"; else echo "- ❌ requirements.md"; fi
-    if $design_approved; then echo "- ✅ design.md"; else echo "- ❌ design.md"; fi
-    if $tasks_approved; then echo "- ✅ tasks.md"; else echo "- ❌ tasks.md"; fi
-    echo ""
-    echo "**Your Task:**"
-    echo ""
-    echo "1. Identify the next document to be reviewed (the first one without a ✅)."
-    echo "2. Display the content of that document."
-    echo "3. Provide a review checklist for the document:"
-    echo "   - Does it meet all criteria for its type?"
-    echo "   - Is it complete, clear, and unambiguous?"
-    echo "   - Are there any missing elements or potential issues?"
-    echo "4. After your review, remind the user how to approve the document if they are satisfied (e.g., spec approve requirements)."
-fi`
+### IF ALL THREE PHASES ARE APPROVED (Implementation Review):
+
+All specification documents are approved. It's time to review the implementation against the spec.
+
+**Your Task:**
+
+1. **Analyze the Specification:**
+   - Read and understand the full specification:
+     - spec/[current-spec]/requirements.md
+     - spec/[current-spec]/design.md
+     - spec/[current-spec]/tasks.md
+
+2. **Inspect the Code:**
+   - Identify and review the code changes that implement this specification
+   - Look in the application directory (e.g., /apps/)
+   - Use tools to find the relevant commits or diffs if necessary
+
+3. **Verify Compliance:**
+   - **Requirements:** Create a checklist from requirements.md and verify that each requirement is met by the code
+   - **Design:** Confirm the implementation adheres to the architecture, patterns, and component choices outlined in design.md
+   - **Tasks:** Ensure every item in tasks.md is completed and correctly implemented
+
+4. **Deliver Your Review:**
+   - Summarize your findings
+   - Highlight any deviations, bugs, or areas for improvement
+   - If the implementation is solid, provide a confirmation
+
+### IF NOT ALL PHASES ARE APPROVED (Specification Review):
+
+Show approval status using checkmarks and crosses:
+- Show which files are approved and which are not
+- Display clearly which phase needs review next
+
+**Your Task:**
+
+1. Identify the next document to be reviewed (the first one not yet approved)
+2. Display the content of that document
+3. Provide a review checklist for the document:
+   - Does it meet all criteria for its type?
+   - Is it complete, clear, and unambiguous?
+   - Are there any missing elements or potential issues?
+4. After your review, remind the user how to approve the document if they are satisfied (e.g., `/spec:approve requirements`)

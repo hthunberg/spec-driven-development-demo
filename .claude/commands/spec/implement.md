@@ -29,12 +29,12 @@ Then continue with implementation:
 6. Remind about using Write tool to update tasks.md
 
 **CRITICAL - Version Control Rules:**
-- ✅ ONLY commit files in `spec/` directory and application directories (`src/`, `apps/`, etc.)
-- ⚠️ Ask before updating file `.claude/settings.local.json`
-- ❌ NEVER commit `.template/` directory contents
-- ❌ NEVER commit or modify files in `.claude/` directory
-- ❌ NEVER commit or modify files in `.vscode/` directory  
-- ❌ NEVER modify `.gitignore` in the root directory
-- ❌ NEVER modify `LICENSE` in the root directory
+- ONLY commit files in `spec/` directory and application directories (`src/`, `apps/`, etc.)
+- Ask before updating file `.claude/settings.local.json`
+- NEVER commit `.template/` directory contents
+- NEVER commit or modify files in `.claude/` directory
+- NEVER commit or modify files in `.vscode/` directory  
+- NEVER modify `.gitignore` in the root directory
+- NEVER modify `LICENSE` in the root directory
 
 Start implementing based on the task list!
