@@ -6,7 +6,7 @@ This project investigates a structured approach to AI-assisted software developm
 
 The `spec/` directory contains a complete example specification for a todo-list API that has been generated through all workflow phases and is ready for implementation:
 ```
-spec/001-todo-list-api/
+spec/001-todo-app/
 ├── requirements.md         # Complete requirements with user stories
 ├── design.md               # Technical design and architecture
 └── tasks.md                # Detailed implementation task list
@@ -36,7 +36,7 @@ You can find me at:
 
 ### Create a new specification
 ```bash
-/spec:new todo-list-api
+/spec:new todo-app
 ```
 
 ### Generate requirements
