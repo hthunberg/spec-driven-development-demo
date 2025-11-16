@@ -1,6 +1,6 @@
 # Spec-Driven Development with Claude Code
 
-This project demonstrates a structured approach to AI-assisted software development using specifications as the primary driver. Instead of directly instructing an AI assistant on *how* to code, we describe *what* we want to achieve through structured specifications that guide the entire development workflow.
+This project investigates a structured approach to AI-assisted software development using specifications as the primary driver. Instead of directly instructing an AI assistant on *how* to code, we describe *what* we want to achieve through structured specifications that guide the entire development workflow.
 
 ## About me
 
