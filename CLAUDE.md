@@ -10,22 +10,28 @@ This is a Spec-Driven Development Implementation Guide for Claude Code - a metho
 
 This project uses custom Claude Code slash commands located in `.claude/commands/spec/`:
 
-- `/spec:new` - Create a new specification
-- `/spec:requirements` - Generate requirements document
-- `/spec:design` - Generate design document
-- `/spec:tasks` - Create task list
-- `/spec:approve` - Approve current phase
-- `/spec:implement` - Start implementation
-- `/spec:status` - Show project status
-- `/spec:switch` - Switch between specs
-- `/spec:update-task` - Update task completion
-- `/spec:review` - Review current phase
+~~~
+/spec:new - Create a new feature specification
+/spec:switch - Switch to a different specification
+/spec:rename - Rename a specification
+/spec:status - Show all specifications and their status
+/spec:requirements - Create or review requirements specification
+/spec:design - Create technical design specification
+/spec:tasks - Create implementation task list
+/spec:review - Review current specification phase
+/spec:approve - Approve a specification phase
+/spec:implement - Start implementation from approved tasks
+/spec:update-task - Mark a task as complete
+~~~
 
 ## Development Workflow
 
 The project enforces a four-phase sequential workflow:
 
-1. **Requirements** → 2. **Design** → 3. **Tasks** → 4. **Implementation**
+1. Requirements
+2. Design 
+3. Tasks
+4. Implementation
 
 Each phase must be approved before proceeding to the next. Approval creates marker files (e.g., `.requirements-approved`).
 
@@ -46,7 +52,8 @@ spec/                     # All specifications stored here
 - Specs are numbered sequentially (001, 002, etc.)
 - Active spec is tracked in `spec/.current-spec`
 - Each command has specific tool permissions in its frontmatter
-- Custom permissions configured in `.claude/settings.local.json`
+- Custom permissions configured in read only `.claude/settings.local.json`
+- Custom templates for requirements, tasks, design etc in `.templates/`
 - No build/test commands - this is a methodology project
 
 ## Working with Specifications
