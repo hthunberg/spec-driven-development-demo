@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(pwd:*)",
+      "Bash(touch:*)",
+      "Bash(echo:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run build:*)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf .)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf spec/*)",
+      "Bash(rm -rf .claude/*)",
+      "Bash(rm -rf .git/*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(chmod -R 777*)",
+      "Bash(sudo rm*)",
+      "Bash(dd if=*)",
+      "Write(.gitignore)",
+      "Write(LICENSE)",
+      "Write(.claude/*)",
+      "Write(.vscode/*)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git reset --hard*)",
+      "Bash(npm install*)",
+      "Bash(npm uninstall*)"
+    ]
+  }
+}
