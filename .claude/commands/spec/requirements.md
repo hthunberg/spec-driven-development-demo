@@ -1,19 +1,28 @@
 ---
-allowed-tools: Bash(cat:*), Bash(test:*), Bash(touch:*), Write
+allowed-tools: Bash(cat:*), Bash(test:*), Bash(ls:*), Write
 description: Create or review requirements specification
 ---
 
+
+
 ## Context
 
-Current spec: !`cat spec/.current-spec 2>/dev/null || echo "No active spec"`
-Spec directory contents: !`ls -la spec/$(cat spec/.current-spec 2>/dev/null)/ 2>/dev/null || echo "Spec not found"`
+Current spec: !`cat spec/.current-spec 2>/dev/null`
+Requirements template: !`cat ./templates/requirements.md 2>/dev/null || echo "No template found"`
 
 ## Your Task
 
-For the current active specification:
+First, validate the current spec:
+1. Read the current spec from the context above
+2. Use `ls` to verify the spec directory exists
+3. If invalid, inform user to run `/spec:switch` or `/spec:new`
+4. Only proceed if valid
 
-1. Check if requirements.md exists
-2. If not, create a comprehensive requirements.md with:
+Then for the current active specification:
+
+1. Check if requirements.md exists in the spec directory
+2. If template is available in context above, use it as the base structure
+3. If not, create a comprehensive requirements.md with:
    - Feature overview
    - User stories with acceptance criteria
    - Functional requirements (P0, P1, P2)
@@ -21,7 +30,7 @@ For the current active specification:
    - Constraints and assumptions
    - Out of scope items
    - Success metrics
-3. If it exists, display current content and suggest improvements
-4. Remind user to use `/spec:approve requirements` when ready
+4. If it exists, display current content and suggest improvements
+5. Remind user to use `/spec:approve requirements` when ready
 
-Use the Write tool to create/update the requirements.md file.
+Use the Write tool to create/update the requirements.md file in the correct spec directory.
