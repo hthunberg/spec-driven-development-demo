@@ -54,21 +54,6 @@ You can find me at:
 /spec:update-task "Initialize project repository"
 ```
 
-## Available commands
-
-| Command | Description |
-|---------|-------------|
-| `/spec:new <name>` | Create a new feature specification |
-| `/spec:requirements` | Generate requirements document |
-| `/spec:design` | Generate technical design |
-| `/spec:tasks` | Generate task breakdown |
-| `/spec:review` | Review current phase or implementation |
-| `/spec:approve <phase>` | Approve a phase to proceed |
-| `/spec:implement` | Start implementing approved tasks |
-| `/spec:update-task <name>` | Mark task as complete |
-| `/spec:status` | Show all specs and their status |
-| `/spec:switch <spec-id>` | Switch to different specification |
-
 ## Customizing templates
 
 Edit templates in `./templates/` to match your project needs:
@@ -76,7 +61,3 @@ Edit templates in `./templates/` to match your project needs:
 - `requirements.md` - Add your specific requirement sections
 - `design.md` - Adjust architecture sections for your stack
 - `tasks.md` - Modify phase breakdown structure
-
-## Learn more
-
-Read my [blog post about spec-driven development](https://callistaenterprise.se/blogg/teknik/) for a detailed walkthrough and lessons learned.
