@@ -2,6 +2,18 @@
 
 This project investigates a structured approach to AI-assisted software development using specifications as the primary driver. Instead of directly instructing an AI assistant on *how* to code, we describe *what* we want to achieve through structured specifications that guide the entire development workflow.
 
+## Sample specifications included
+
+The `spec/` directory contains a complete example specification for a todo-list API that has been generated through all workflow phases and is ready for implementation:
+```
+spec/001-todo-list-api/
+├── requirements.md         # Complete requirements with user stories
+├── design.md               # Technical design and architecture
+└── tasks.md                # Detailed implementation task list
+```
+
+This serves as an example showing what a generated specification looks like before the implementation phase begins.
+
 ## About me
 
 I'm a Software Engineer living in Sweden. I have worked with this craft for over 25 years and still think it is one of the most rewarding things there is, and I am passionate about learning new things.
