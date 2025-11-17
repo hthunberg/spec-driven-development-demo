@@ -30,6 +30,8 @@ You can find me at:
 
 ## Getting started
 
+⚠️ **Before you start:** Claude Code executes real commands on your machine. This is powerful but requires awareness. 
+
 ### Prerequisites
 ```bash
 # Install Claude Code CLI
